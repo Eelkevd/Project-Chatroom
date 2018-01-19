@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<!--<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">-->
+	<title>Chatweb</title>
+	<link rel="stylesheet" type="text/css" href="css/chatwebStylesheet.css">
+	<script src="js/chatwebJS.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div id="chatField"  class="contentElement">
+		<p id="textInput" align="center">WELCOME STRANGER</p>
+	</div>
+
+	<input id="myKey" type="text" name="myKey" placeholder="your name"> <br />
+	<input type="text" id="chatInput" name="value" placeholder="type here">
+	<div id="sendText" onclick="sendMessage()" align="center">send</div>
+
+</body>
+
+<script>
+	$(document).ready(function(){
+    $('#chatInput').keypress(function(e){
+      if(e.keyCode==13)
+      $('#sendText').click();
+    });
+});
+
+</script>
+
+</html>

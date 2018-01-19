@@ -1,0 +1,50 @@
+body{
+	background-color: black;
+}
+
+#chatField{
+	height: 400px;
+	width: 600px;
+    border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+	background-color: black;
+	margin-bottom: 10px;
+	overflow-y: scroll;
+	word-wrap: break-word;
+	font-family: Courier;
+	color: white;
+	padding: 3px;
+}
+
+.textFieldAndBtn{
+
+}
+
+#sendText{
+	background-color: white;
+	padding: 5px;
+	width: 80px;
+	display: inline-block;
+	cursor: pointer;
+	font-family: Courier;
+	font-size: 80%;
+}
+
+#chatInput{
+	background-color: black;
+	color: white;
+	font-family: Courier;
+	padding: 3px;
+	width: 500px;
+}
+
+#myKey{
+	background-color: black;
+	color: white;
+	font-family: Courier;
+	padding: 3px;
+	width: 200px;
+	margin-bottom: 5px;
+}
