@@ -3,14 +3,16 @@
 
 var xhr = new XMLHttpRequest();
 //var userName = document.getElementById('myKey').value;
-var userName = "eelke";
+var userName = "Eelke";
 var topID = 0;
 var oldMsgs = [];
 
 function sendMessage(){
 	//var userName = document.getElementById('myKey').value;
+	var d = new Date();
+	var timeStamp = d.toLocaleTimeString();
 	var value = document.getElementById('chatInput').value;
-	var urlWrite = "https://codegorilla.nl/read_write/api.php?action=write&mykey="+ userName +"&value="+ value;
+	var urlWrite = "https://codegorilla.nl/read_write/api.php?action=write&mykey="+ userName + "&value=" + "("+timeStamp+ ")"+ " " + "<b>" + userName + "</b>" + ":" + " " + value;
 	var chatMessage = document.getElementById('chatField');
 	
 	//test alertbox
@@ -33,7 +35,6 @@ function sendMessage(){
 
 function grabChatMessageId(id){
 	var urlRead = "https://codegorilla.nl/read_write/api.php?action=read&mykey=" + userName + "&id=" + id;
-
 	xhr.open('GET', urlRead, false);
 	xhr.send();
 }
@@ -48,8 +49,7 @@ function getAllIds(){
 	for (i=0 ; i < oldMsgs.length ; i++) {
 		oldMsgs[i] = parseInt(oldMsgs[i]);
 	}
-	var audio = new Audio('audio/unsure.mp3');
-			audio.play();
+
 }	
 
 function getOldMsg(){
@@ -62,7 +62,8 @@ function getOldMsg(){
 			chatMessage.innerHTML += newMessage + "<br>";
 			topID = oldMsgs[i];
 			scrollBottom();
-			
+			var audio = new Audio('audio/unsure.mp3');
+			audio.play();
 		}
 	}
 }
@@ -70,8 +71,7 @@ function getOldMsg(){
 window.setInterval(function(){
 	getAllIds();
 	getOldMsg();
-	
-}, 5000);
+}, 500);
 
 function scrollBottom(){
 	$("#chatField").scrollTop($("#chatField").prop("scrollHeight"));
