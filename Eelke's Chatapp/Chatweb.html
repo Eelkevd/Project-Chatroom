@@ -12,23 +12,50 @@
 
 <body>
 
-	<div id="chatField"  class="contentElement">
-		<p id="textInput" align="center">WELCOME STRANGER</p>
+	<div id="logIn">
+		<h1 id="welcomeBanner" align="center">WELCOME <br /> STRANGER</h1>
+		<input id="userName"  type="text"  name="userName" placeholder="your name" autofocus> <br />
+		<input id="myKey"  type="text"  name="myKey" placeholder="name chatroom"> <br />
+		<div id="sendUsername" onclick="loadChatroom()" align="center" class="contentElement">OK</div>
 	</div>
 
-	<input id="myKey"  type="text" name="myKey" placeholder="your name"> <br />
-	<input type="text" id="chatInput" name="value" placeholder="type here">
-	<div id="sendText" onclick="sendMessage()" align="center">send</div>
+	<div id="chatRoom">
+		<div id="chatField"  class="contentElement">
+			<h2 id="showUsername" align="center"></h2>
+			<p id = "showKey" align="center"></p>
+		</div>
+		
+		<input type="text" id="chatInput" name="value" placeholder="type here" class="contentElement">
+		<div id="sendText" onclick="sendMessage()" align="center" class="contentElement">send</div> <br />
+		<div id="returnHome" onclick="loadHome()" align="center" class="contentElement">exit</div>
+	</div>
 
 </body>
 
 <script>
+
 	$(document).ready(function(){
-    $('#chatInput').keypress(function(e){
-      if(e.keyCode==13)
-      $('#sendText').click();
-    });
-});
+	
+		$('#myKey').keypress(function(e){
+		  if(e.keyCode==13)
+		  $('#sendUsername').click();
+		});
+		
+		$('#userName').keypress(function(e){
+		  if(e.keyCode==13)
+		  $('#sendUsername').click();
+		});
+
+		$('#chatInput').keypress(function(e){
+		  if(e.keyCode==13)
+		  $('#sendText').click();
+		});
+		
+		$('#chatRoom').keypress(function(e){
+		  if(e.keyCode==27)
+		  $('#returnHome').click();
+		});
+	});
 
 </script>
 
